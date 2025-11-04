@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WGUStudentTracker.Views.Courses.EditCoursePage"
+             Title="EditCoursePage">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+
+            <Label Text="Edit Course"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Course Name:" FontAttributes="Bold" />
+            <Entry x:Name="CourseNameEntry" />
+
+            <Label Text="Start Date:" FontAttributes="Bold" />
+            <DatePicker x:Name="StartDatePicker" />
+
+            <Label Text="End Date:" FontAttributes="Bold" />
+            <DatePicker x:Name="EndDatePicker" />
+
+            <Label Text="Course Status:" FontAttributes="Bold" />
+            <Picker x:Name="StatusPicker">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>In Progress</x:String>
+                        <x:String>Completed</x:String>
+                        <x:String>Dropped</x:String>
+                        <x:String>Plan to Take</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Text="Instructor Name:" FontAttributes="Bold" />
+            <Entry x:Name="InstructorNameEntry" />
+
+            <Label Text="Instructor Phone:" FontAttributes="Bold" />
+            <Entry x:Name="InstructorPhoneEntry" Keyboard="Telephone" />
+
+            <Label Text="Instructor Email:" FontAttributes="Bold" />
+            <Entry x:Name="InstructorEmailEntry" Keyboard="Email" />
+
+            <Border Stroke="Gray"
+                StrokeThickness="1"
+                Padding="10"
+                StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Assessments" FontAttributes="Bold" FontSize="18" />
+
+                    <Label Text="Objective Assessment" FontAttributes="Bold" />
+                    <Entry x:Name="ObjectiveNameEntry" Placeholder="Objective assessment name" />
+                    <Label Text="Due Date:" />
+                    <DatePicker x:Name="ObjectiveDueDatePicker" />
+                    <Label Text="Start Date:" />
+                    <DatePicker x:Name="ObjectiveStartPicker" />
+
+                    <Label Text="End Date:" />
+                    <DatePicker x:Name="ObjectiveEndPicker" />
+
+
+                    <Button Text="🔔 Set Start/End Notifications"
+                        BackgroundColor="#FFA500"
+                        TextColor="White"
+                        CornerRadius="8"
+                        Clicked="OnSetObjectiveNotificationClicked" />
+
+                    <Label Text="Performance Assessment" FontAttributes="Bold" Margin="0,10,0,0" />
+                    <Entry x:Name="PerformanceNameEntry" Placeholder="Performance assessment name" />
+                    <Label Text="Due Date:" />
+                    <DatePicker x:Name="PerformanceDueDatePicker" />
+
+                    <Label Text="Start Date:" />
+                    <DatePicker x:Name="PerformanceStartPicker" />
+
+                    <Label Text="End Date:" />
+                    <DatePicker x:Name="PerformanceEndPicker" />
+
+                    <Button Text="🔔 Set Start/End Notifications"
+                        BackgroundColor="#FFA500"
+                        TextColor="White"
+                        CornerRadius="8"
+                        Clicked="OnSetPerformanceNotificationClicked" />    
+                </VerticalStackLayout>
+            </Border>
+
+
+            <Border Stroke="Gray" StrokeThickness="1" Padding="10" StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Course Notes (Optional)" FontAttributes="Bold" FontSize="18" />
+                    <Editor x:Name="NotesEditor"
+                Placeholder="Type notes about this course..."
+                AutoSize="TextChanges"
+                HeightRequest="120" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="📤 Share Notes"
+                BackgroundColor="#5A9"
+                TextColor="White"
+                CornerRadius="8"
+                Clicked="OnShareNotesClicked" />
+
+
+            <Button Text="Update Course"
+                    Clicked="OnUpdateClicked"
+                    BackgroundColor="#007ACC"
+                    TextColor="White"
+                    CornerRadius="8" />
+
+            <Button Text="Cancel"
+                    Clicked="OnCancelClicked"
+                    BackgroundColor="#888"
+                    TextColor="White"
+                    CornerRadius="8" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

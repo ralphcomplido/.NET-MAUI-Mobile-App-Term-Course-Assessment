@@ -1,0 +1,78 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WGUStudentTracker.Views.TermsListPage"
+             Title="Academic Terms">
+
+    <AbsoluteLayout>
+        <VerticalStackLayout Padding="20" Spacing="15"
+                             AbsoluteLayout.LayoutBounds="0,0,1,1"
+                             AbsoluteLayout.LayoutFlags="All">
+
+            <Label Text="Academic Terms"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <CollectionView x:Name="TermsCollectionView"
+                            SelectionMode="Single"
+                            SelectionChanged="OnTermSelected"
+                            ItemsSource="{Binding Terms}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="#ccc"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 10"
+                            Margin="0,5"
+                            Padding="10">
+
+                            <Grid ColumnDefinitions="*,Auto,Auto" RowDefinitions="Auto,Auto">
+                                <Label Grid.Row="0"
+                                    Grid.Column="0"
+                                    Text="{Binding Title}"
+                                    FontAttributes="Bold"
+                                    FontSize="18" />
+
+                            <Label Grid.Row="1"
+                                    Grid.Column="0"
+                                    Text="{Binding StartDate, StringFormat='Start: {0:MMM d, yyyy}'}" />
+                            <Label Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="{Binding EndDate, StringFormat='End: {0:MMM d, yyyy}'}"
+                                    Margin="20,0,0,0" />
+
+                            <Button Grid.Row="0"
+                                    Grid.Column="1"
+                                    Text="✏️"
+                                    FontSize="16"
+                                    BackgroundColor="Transparent"
+                                    TextColor="DarkSlateGray"
+                                    Clicked="OnEditTermClicked"/>
+
+                            <Button Grid.Row="0"
+                                    Grid.Column="2"
+                                    Text="🗑️"
+                                    FontSize="16"
+                                    BackgroundColor="Transparent"
+                                    TextColor="DarkRed"
+                                    Clicked="OnDeleteTermClicked"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+
+        <Button Text="+"
+                FontSize="28"
+                WidthRequest="60"
+                HeightRequest="60"
+                CornerRadius="30"
+                BackgroundColor="Gray"
+                TextColor="White"
+                AbsoluteLayout.LayoutBounds="1,1,AutoSize,AutoSize"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                Margin="0,20,20,20"
+                Clicked="OnAddTermClicked" />
+
+    </AbsoluteLayout>
+</ContentPage>

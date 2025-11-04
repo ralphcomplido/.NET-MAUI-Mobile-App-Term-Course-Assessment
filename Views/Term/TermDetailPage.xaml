@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WGUStudentTracker.Views.TermDetailPage"
+             Title="TermDetailPage">
+    <VerticalStackLayout>
+        <Label x:Name="TermTitleLabel"
+               FontAttributes="Bold"
+               FontSize="24"
+               HorizontalOptions="Center" />
+
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="15">
+            <Label x:Name="StartDateLabel" FontAttributes="Bold" />
+            <Label Text=" - " FontAttributes="Bold" />
+            <Label x:Name="EndDateLabel" FontAttributes="Bold" />
+        </HorizontalStackLayout>
+
+        <Button Text="+ Add Course"
+                BackgroundColor="#007ACC"
+                TextColor="White"
+                CornerRadius="8"
+                Clicked="OnAddCourseClicked"
+                Margin="0,10,0,10" />
+
+        <CollectionView x:Name="CoursesCollectionView"
+                        SelectionMode="None"
+                        ItemsLayout="VerticalList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Stroke="Gray" StrokeThickness="1" Margin="0,5" Padding="10">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="18" />
+                            <Label Text="{Binding Status}" FontSize="14" TextColor="Gray" />
+                            <Label Text="{Binding InstructorName}" FontSize="14" TextColor="Gray" />
+                            <Label Text="{Binding InstructorEmail}" FontSize="14" TextColor="Gray" />
+
+                            <HorizontalStackLayout HorizontalOptions="End" Spacing="10">
+                                <Button Text="✏️ Edit" Clicked="OnEditCourseClicked" FontSize="12" />
+                                <Button Text="🗑️ Delete" Clicked="OnDeleteCourseClicked" FontSize="12" />
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+    
+</ContentPage>

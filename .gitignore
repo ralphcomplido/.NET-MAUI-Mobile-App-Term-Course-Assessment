@@ -1,0 +1,62 @@
+﻿# --- Visual Studio / .NET ---
+.vs/
+*.suo
+*.user
+*.userosscache
+*.userprefs
+*.sln.docstates
+*.rsuser
+*.vsidx
+
+# Build outputs
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+out/
+[Bb]uild/
+TestResults/
+*.cache
+*.pdb
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+# keep packages.config if present
+!packages/build/
+!.nuget/packages.config
+
+# Rider / VS Code / others
+.idea/
+.vscode/
+*.code-workspace
+
+# --- .NET MAUI / Xamarin-ish extras ---
+# Android
+*.aab
+*.apk
+*.keystore
+*.jks
+
+# iOS/macOS
+*.dSYM
+*.ipa
+
+# Windows clutter
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+
+# macOS clutter
+.DS_Store
+
+# SQLite runtime data (keep seed DBs out of this unless you want them tracked)
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+# If you **do** need to commit a seed DB in MAUI resources, unignore it:
+!Resources/Raw/*.db
+!Resources/Raw/*.sqlite*
